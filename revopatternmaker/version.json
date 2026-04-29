@@ -1,11 +1,11 @@
 [
     {
-        "version": "0.1.2",
+        "version": "0.2.0",
         "date": {
             "year": 2026,
-            "month": 3,
-            "day": 17
+            "month": 4,
+            "day": 29
         },
-        "info": "Pattern repeat fix."
+        "info": "Live edit toggle UI moved and output preface removed."
     }
 ]
