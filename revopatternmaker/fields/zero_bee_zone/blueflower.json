@@ -1,0 +1,19 @@
+{
+    "name": "Blue Flower",
+    "measurements": {
+        "x": 172,
+        "y": 68
+    },
+    "walls_enabled": {
+        "top": true,
+        "bottom": true,
+        "left": false,
+        "right": true
+    },
+    "walls_offset": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 24
+    }
+}

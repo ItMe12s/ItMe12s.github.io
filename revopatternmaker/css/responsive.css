@@ -1,0 +1,8 @@
+/* Responsive design and media queries */
+
+@media (max-width: 1200px) {
+    main {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Coconut",
+    "measurements": {
+        "x": 120,
+        "y": 84
+    },
+    "walls_enabled": {
+        "top": false,
+        "bottom": true,
+        "left": true,
+        "right": true
+    },
+    "walls_offset": {
+        "top": 0,
+        "bottom": 5,
+        "left": 0,
+        "right": 0
+    }
+}

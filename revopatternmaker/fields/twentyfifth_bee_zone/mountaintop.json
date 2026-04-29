@@ -1,0 +1,19 @@
+{
+    "name": "Mountain Top",
+    "measurements": {
+        "x": 96,
+        "y": 112
+    },
+    "walls_enabled": {
+        "top": true,
+        "bottom": false,
+        "left": false,
+        "right": false
+    },
+    "walls_offset": {
+        "top": 21,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+    }
+}

@@ -1,0 +1,19 @@
+{
+    "name": "Rose",
+    "measurements": {
+        "x": 124,
+        "y": 80
+    },
+    "walls_enabled": {
+        "top": true,
+        "bottom": false,
+        "left": false,
+        "right": true
+    },
+    "walls_offset": {
+        "top": 3,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+    }
+}

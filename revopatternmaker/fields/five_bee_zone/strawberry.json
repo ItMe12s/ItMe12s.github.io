@@ -1,0 +1,19 @@
+{
+    "name": "Strawberry",
+    "measurements": {
+        "x": 88,
+        "y": 104
+    },
+    "walls_enabled": {
+        "top": true,
+        "bottom": false,
+        "left": true,
+        "right": false
+    },
+    "walls_offset": {
+        "top": 0,
+        "bottom": 0,
+        "left": 0,
+        "right": 0
+    }
+}

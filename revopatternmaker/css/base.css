@@ -1,0 +1,62 @@
+/* Global reset and base styles */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+:root {
+    --accent-blue: #1F5FBA;
+
+    /* Color palette for UI components */
+    --color-gray-100: #e0e0e0;
+    --color-gray-300: #666666;
+    --color-gray-400: #4a4a4a;
+
+    --color-dark-100: #2d2d30;
+    --color-dark-200: #252526;
+    --color-dark-300: #1e1e1e;
+    --color-dark-500: #0e0e0e;
+
+    --color-blue-400: #1F5FBA;
+
+    /* Shadows */
+    --shadow-medium: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --shadow-large: 0 4px 16px rgba(0, 0, 0, 0.5);
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    background: #1e1e1e;
+    color: #e0e0e0;
+    padding: 10px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+section {
+    background: transparent;
+    border: none;
+    border-radius: 3px;
+    padding: 0;
+}
+
+section h2 {
+    color: #ffffff;
+    margin-bottom: 15px;
+    font-size: 1.3em;
+    border-bottom: 1px solid #3a3a3a;
+    padding-bottom: 10px;
+}

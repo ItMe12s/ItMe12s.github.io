@@ -1,0 +1,19 @@
+{
+    "name": "Clover",
+    "measurements": {
+        "x": 104,
+        "y": 116
+    },
+    "walls_enabled": {
+        "top": false,
+        "bottom": true,
+        "left": false,
+        "right": true
+    },
+    "walls_offset": {
+        "top": 0,
+        "bottom": 4,
+        "left": 0,
+        "right": 47.5
+    }
+}

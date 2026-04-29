@@ -1,0 +1,1 @@
+(()=>{importScripts("build_segments.js");const s=self.RevoBuildSegments;self.onmessage=e=>{const{id:t,type:o,payload:i}=e.data||{};if(void 0!==t)try{if("buildSegments"===o){const e=s(i||{});self.postMessage({id:t,success:!0,result:e})}else self.postMessage({id:t,success:!1,error:"unknown task"})}catch(s){self.postMessage({id:t,success:!1,error:s&&s.message||String(s)})}}})();

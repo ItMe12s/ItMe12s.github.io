@@ -1,0 +1,19 @@
+{
+    "name": "Pepper",
+    "measurements": {
+        "x": 84,
+        "y": 108
+    },
+    "walls_enabled": {
+        "top": true,
+        "bottom": true,
+        "left": true,
+        "right": false
+    },
+    "walls_offset": {
+        "top": 19,
+        "bottom": 22.3,
+        "left": 12,
+        "right": 0
+    }
+}

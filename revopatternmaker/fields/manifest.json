@@ -1,0 +1,52 @@
+{
+  "version": 1,
+  "zones": [
+    {
+      "name": "fifteen_bee_zone",
+      "files": [
+        "cactus.json",
+        "pinetree.json",
+        "pumpkin.json",
+        "rose.json"
+      ]
+    },
+    {
+      "name": "five_bee_zone",
+      "files": [
+        "bamboo.json",
+        "spider.json",
+        "strawberry.json"
+      ]
+    },
+    {
+      "name": "ten_bee_zone",
+      "files": [
+        "pineapple.json",
+        "stump.json"
+      ]
+    },
+    {
+      "name": "thirtyfifth_bee_zone",
+      "files": [
+        "coconut.json",
+        "pepper.json"
+      ]
+    },
+    {
+      "name": "twentyfifth_bee_zone",
+      "files": [
+        "mountaintop.json"
+      ]
+    },
+    {
+      "name": "zero_bee_zone",
+      "files": [
+        "blueflower.json",
+        "clover.json",
+        "dandilion.json",
+        "mushroom.json",
+        "sunflower.json"
+      ]
+    }
+  ]
+}

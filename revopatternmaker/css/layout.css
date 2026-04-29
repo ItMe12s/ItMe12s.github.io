@@ -1,0 +1,42 @@
+/* Main layout and panel structure */
+
+main {
+    display: grid;
+    grid-template-columns: 2fr 5fr 2fr;
+    grid-template-rows: 1fr;
+    gap: 0;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    background: #282828;
+    max-width: 100vw;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px;
+    border-right: 1px solid #3a3a3a;
+    overflow-y: auto;
+    min-width: 0;
+}
+
+.preview-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px;
+    border-right: 1px solid #3a3a3a;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 10px;
+    overflow-y: auto;
+    min-width: 0;
+}
