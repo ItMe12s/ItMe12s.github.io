@@ -100,6 +100,45 @@
     z-index: 2;
 }
 
+.live-edit-tooltip-float {
+    position: absolute;
+    left: 8px;
+    bottom: 36px;
+    z-index: 3;
+    max-width: min(280px, calc(100% - 140px));
+    padding: 4px 0;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    pointer-events: none;
+}
+
+.live-edit-tooltip-float[hidden] {
+    display: none !important;
+}
+
+.live-edit-tooltip-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 10px;
+    line-height: 1.45;
+    color: rgba(220, 220, 220, 0.95);
+    text-shadow:
+        0 0 6px rgba(0, 0, 0, 0.95),
+        0 1px 3px rgba(0, 0, 0, 0.9),
+        0 0 1px rgba(0, 0, 0, 1);
+}
+
+.live-edit-tooltip-list li {
+    margin: 0 0 4px 0;
+    padding: 0;
+}
+
+.live-edit-tooltip-list li:last-child {
+    margin-bottom: 0;
+}
+
 .live-edit-box {
     position: absolute;
     right: 8px;
@@ -118,6 +157,64 @@
 
 .live-edit-box label {
     margin: 0;
+}
+
+.live-edit-context-menu {
+    position: fixed;
+    z-index: 25;
+    min-width: 240px;
+    max-width: min(320px, calc(100vw - 16px));
+    padding: 4px 0;
+    background: rgba(24, 24, 24, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+.live-edit-context-menu[hidden] {
+    display: none !important;
+}
+
+.live-edit-context-item {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    border: none;
+    background: transparent;
+    color: #eee;
+    font-size: 12px;
+    text-align: left;
+    cursor: pointer;
+}
+
+.live-edit-context-item:hover:not(:disabled) {
+    background: rgba(0, 230, 255, 0.12);
+}
+
+.live-edit-context-item:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+.live-edit-context-sep {
+    height: 1px;
+    margin: 4px 8px;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.live-edit-context-hints {
+    padding: 6px 12px 8px;
+    font-size: 10px;
+    line-height: 1.4;
+    color: #888;
+}
+
+.live-edit-context-hints p {
+    margin: 0 0 4px;
+}
+
+.live-edit-context-hints p:last-child {
+    margin-bottom: 0;
 }
 
 .loop-label {
