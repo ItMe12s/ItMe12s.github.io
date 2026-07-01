@@ -1,3 +1,6 @@
+import { el } from './lib/dom';
+import { readJson, writeJson } from './lib/storage';
+
 const TTL = 60 * 60 * 1000;
 const STORE = 'imes_repo_cache';
 
@@ -27,18 +30,6 @@ function langColor(l: string | null): string {
   return l ? (LANG_COLORS[l] ?? '#6a6a6a') : '#6a6a6a';
 }
 
-function readCache(): RepoCache {
-  try {
-    return JSON.parse(localStorage.getItem(STORE) ?? '{}') as RepoCache;
-  } catch {
-    return {};
-  }
-}
-
-function writeCache(c: RepoCache): void {
-  try { localStorage.setItem(STORE, JSON.stringify(c)); } catch { /* ponytail */ }
-}
-
 function paint(row: Element, d: RepoCacheEntry): void {
   const s = row.querySelector('.dstars');
   const l = row.querySelector('.dlang');
@@ -46,7 +37,10 @@ function paint(row: Element, d: RepoCacheEntry): void {
   if (s) s.textContent = '\u2605' + (typeof d.s === 'number' ? d.s : '');
   if (l) {
     if (d.l) {
-      l.innerHTML = `<span class="dot" style="background:${langColor(d.l)}"></span>${d.l}`;
+      l.replaceChildren(
+        el('span', { class: 'dot', style: `background:${langColor(d.l)}` }),
+        document.createTextNode(d.l),
+      );
     } else {
       l.textContent = '';
     }
@@ -59,7 +53,7 @@ export function initGitHubRepos(): void {
   if (!rows.length) return;
 
   const now = Date.now();
-  const cache = readCache();
+  const cache = readJson<RepoCache>(STORE, {});
   let fresh = true;
 
   for (const row of rows) {
@@ -94,9 +88,9 @@ export function initGitHubRepos(): void {
           d: typeof d.description === 'string' ? d.description : '',
         };
         paint(row, data);
-        const c = readCache();
+        const c = readJson<RepoCache>(STORE, {});
         c[repo] = data;
-        writeCache(c);
+        writeJson(STORE, c);
       })
       .catch(() => { /* ponytail: API fail silent */ });
   }

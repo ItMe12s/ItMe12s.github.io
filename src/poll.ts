@@ -1,3 +1,6 @@
+import { el } from './lib/dom';
+import { readStorage, removeStorage, writeStorage } from './lib/storage';
+
 type PollKey = 'p1' | 'p2' | 'p3' | 'p4';
 type PollState = Record<PollKey, number>;
 type PollLabels = Record<PollKey, string>;
@@ -27,22 +30,27 @@ export function initPoll(): void {
     if (!box) return;
 
     const t = total(state);
-    let html = '';
-    for (const k of Object.keys(POLL.labels) as PollKey[]) {
-      const pct = t ? Math.round(state[k] / t * 100) : 0;
-      html += '<div class="pollbar-wrap">'
-        + '<div class="pollbar-row">'
-        + `<span style="width:75px;display:inline-block;">${POLL.labels[k]}</span>`
-        + '<span class="pollbar-track">'
-        + `<span class="pollbar-fill" style="width:${pct}%"></span>`
-        + `<span class="pollbar-pct">${pct}%</span>`
-        + '</span>'
-        + '</div></div>';
-    }
-    if (voted) {
-      html += `<div class="pollbar-voted">คุณโหวตแล้ว: <b>${POLL.labels[voted]}</b> (ขอบคุณครับ!)</div>`;
-    }
-    box.innerHTML = html;
+    box.replaceChildren(
+      ...(Object.keys(POLL.labels) as PollKey[]).map((k) => {
+        const pct = t ? Math.round(state[k] / t * 100) : 0;
+        return el('div', { class: 'pollbar-wrap' },
+          el('div', { class: 'pollbar-row' },
+            el('span', { style: 'width:75px;display:inline-block;' }, POLL.labels[k]),
+            el('span', { class: 'pollbar-track' },
+              el('span', { class: 'pollbar-fill', style: `width:${pct}%` }),
+              el('span', { class: 'pollbar-pct' }, `${pct}%`),
+            ),
+          ),
+        );
+      }),
+      ...(voted
+        ? [el('div', { class: 'pollbar-voted' },
+          'คุณโหวตแล้ว: ',
+          el('b', undefined, POLL.labels[voted]),
+          ' (ขอบคุณครับ!)',
+        )]
+        : []),
+    );
   }
 
   function setLocked(locked: boolean): void {
@@ -56,10 +64,8 @@ export function initPoll(): void {
     if (undo instanceof HTMLElement) undo.style.display = locked ? '' : 'none';
   }
 
-  try {
-    const stored = localStorage.getItem(STORE);
-    if (isPollKey(stored)) voted = stored;
-  } catch { /* ponytail: localStorage blocked */ }
+  const stored = readStorage(STORE);
+  if (isPollKey(stored)) voted = stored;
 
   if (voted) state[voted] += 1;
   render();
@@ -83,7 +89,7 @@ export function initPoll(): void {
       }
       state[chosen] += 1;
       voted = chosen;
-      try { localStorage.setItem(STORE, chosen); } catch { /* ponytail */ }
+      writeStorage(STORE, chosen);
       render();
       setLocked(true);
       const note = document.getElementById('pollnote');
@@ -96,7 +102,7 @@ export function initPoll(): void {
     undo.addEventListener('click', () => {
       if (voted && state[voted] > POLL.base[voted]) state[voted] -= 1;
       voted = null;
-      try { localStorage.removeItem(STORE); } catch { /* ponytail */ }
+      removeStorage(STORE);
       render();
       setLocked(false);
     });
