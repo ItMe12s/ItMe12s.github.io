@@ -12,7 +12,7 @@
     <meta name="apple-mobile-web-app-title" content="imes.in.th" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
     <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <script type="module" src="/src/main.ts"></script>
     <base target="_blank" />
 </head>
 
@@ -75,8 +75,8 @@
                     </tr>
                     <tr>
                         <td class="wbody">
-                            <input type="text" class="inp" id="q" style="width:130px;" oninput="dosearch()" />
-                            <input type="button" class="btn" value="Go" onclick="dosearch()" /><br />
+                            <input type="text" class="inp" id="q" style="width:130px;" />
+                            <input type="button" class="btn" value="Go" /><br />
                             <span style="font-size:13px;">ค้นหาในเว็บนี้</span>
                         </td>
                     </tr>
