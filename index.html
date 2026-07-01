@@ -1,44 +1,365 @@
+<!DOCTYPE html>
+<html lang="th">
+
 <head>
-    <title>imes</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>:: imes.in.th :: โฮมเพจส่วนตัว (Personal Homepage) ::</title>
     <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
     <link rel="shortcut icon" href="/favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="imes.in.th" />
     <link rel="manifest" href="/favicon/site.webmanifest" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <base target="_blank" />
 </head>
 
-<body>
-    <h1>imes.in.th temporary page</h1>
-    <h2>Imagine this is a really good link tree</h2>
+<body bgcolor="#c6c6c6" text="#000000" link="#0000EE" vlink="#551A8B" alink="#FF0000">
 
-    <h3>Revolution Macro Pattern Maker</h3>
+    <table class="frame" id="top" cellpadding="0" cellspacing="0">
 
-    <a href="https://imes.in.th/revopatternmaker">RPM Public Preview</a>
+        <tr>
+            <td colspan="2" class="titlebar">
+                <span class="right">2 กันยายน 2551 &nbsp;|&nbsp; 02/09/2008</span>
+                <span class="big">imes.in.th</span>
+                <span class="small"> &nbsp;::&nbsp; โฮมเพจส่วนตัว (Personal Homepage)</span>
+            </td>
+        </tr>
 
-    <h3>Store</h3>
+        <tr>
+            <td colspan="2" class="navbar">
+                <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M2 8l5-4 5 4v1h-2v4H4V9H2z' fill='%23c04040' stroke='%23602020'/></svg>"
+                    width="14" height="14" alt="" />
+                <a href="#top" target="_self">หน้าหลัก (Home)</a><span class="sep"> | </span>
+                <a href="#links" target="_self">ลิงก์ (Links)</a><span class="sep"> | </span>
+                <a href="#mods" target="_self">ม็อด (Mods)</a>
+            </td>
+        </tr>
 
-    <a href="https://www.roblox.com/catalog?CreatorName=cTicket&CreatorType=Group&salesTypeFilter=1">Roblox UGC</a>
+        <tr>
+            <td colspan="2" class="marqbar">
+                <marquee scrollamount="4">
+                    ♪♪ ยินดีต้อนรับสู่ imes.in.th &nbsp;♥&nbsp; ขอบคุณที่มาเยี่ยมชมครับ &nbsp;★&nbsp; Welcome to my
+                    homepage! &nbsp;♥&nbsp; โปรดโหวตให้เว็บไซต์นี้ด้วยนะครับ &nbsp;♥&nbsp; ขอให้มีความสุขในการท่องเว็บ
+                    &nbsp;♪♪
+                </marquee>
+            </td>
+        </tr>
 
-    <h3>Community and support</h3>
+        <tr>
 
-    <a href="https://discord.gg/qEt9XhZBuP">Roblox and TikTok projects Discord Server</a>
-    <br>
-    <a href="https://discord.gg/E8f6D6XqbW">Geometry Dash and Geode SDK modding Discord Server</a>
+            <td class="side">
 
-    <h3>Socials</h3>
+                <table class="widget" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="whead">เมนูหลัก (Menu)</td>
+                    </tr>
+                    <tr>
+                        <td class="wbody">
+                            <ul>
+                                <li><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='13' height='13'><path d='M2 8l5-4 5 4v1h-2v4H4V9H2z' fill='%23c04040' stroke='%23602020'/></svg>"
+                                        width="13" height="13" alt="" /> <a href="#top" target="_self">หน้าหลัก</a></li>
+                                <li><img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='13' height='13'><rect x='1' y='3' width='6' height='2' fill='%23caa020'/><path d='M1 5h11v6H1z' fill='%23ffd040' stroke='%23806000'/></svg>"
+                                        width="13" height="13" alt="" /> <a href="#links"
+                                        target="_self">ลิงก์น่าสนใจ</a></li>
+                            </ul>
+                        </td>
+                    </tr>
+                </table>
 
-    <a href="https://github.com/ItMe12s">GitHub</a>
-    <br>
-    <a href="https://www.instagram.com/i._.mes2/">Instagram</a>
-    <br>
-    <a href="https://www.tiktok.com/@itme12s">TikTok</a>
-    <br>
-    <a href="https://x.com/ludQC_QA">Twitter / X</a>
-    <br>
-    <a href="https://www.youtube.com/@ItMe12s">YouTube</a>
-    <br>
-    <a href="https://www.twitch.tv/imes_s">Twitch</a>
-    <br>
-    <a href="https://www.roblox.com/users/784247040/profile">Roblox</a>
+                <table class="widget" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="whead">ค้นหา (Search)</td>
+                    </tr>
+                    <tr>
+                        <td class="wbody">
+                            <input type="text" class="inp" id="q" style="width:130px;" oninput="dosearch()" />
+                            <input type="button" class="btn" value="Go" onclick="dosearch()" /><br />
+                            <span style="font-size:13px;">ค้นหาในเว็บนี้</span>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="widget" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="whead">ผู้เยี่ยมชม (Counter)</td>
+                    </tr>
+                    <tr>
+                        <td class="wbody" style="text-align:center;">
+                            <span class="lcd">00246813</span><br />
+                            <span style="font-size:13px;">ตั้งแต่วันที่ 1 ม.ค. 2542</span><br />
+                            <span style="font-size:13px;">วันนี้: <b>0043</b> &nbsp; เมื่อวาน: <b>0058</b></span>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="widget" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="whead">โหวต (Web Poll)</td>
+                    </tr>
+                    <tr>
+                        <td class="wbody">
+                            คุณชอบเว็บไซต์นี้ไหม?<br />
+                            <input type="radio" name="p" id="p1" /><label for="p1"> ชอบมาก</label><br />
+                            <input type="radio" name="p" id="p2" /><label for="p2"> ชอบ</label><br />
+                            <input type="radio" name="p" id="p3" /><label for="p3"> ปกติ</label><br />
+                            <input type="radio" name="p" id="p4" /><label for="p4"> ไม่ชอบ</label><br />
+                            <div style="margin-top:3px;">
+                                <input type="button" class="btn" id="pollvote" value="โหวต!" />
+                                <input type="button" class="btn" id="pollundo" value="ยกเลิกโหวต"
+                                    style="display:none;" />
+                            </div>
+                            <span id="pollnote"
+                                style="display:none;color:#cc0000;font-size:13px;">กรุณาเลือกตัวเลือกก่อน</span>
+                            <div class="hr"></div>
+                            <div id="pollres"></div>
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+
+            <td class="main" id="links">
+
+                <div class="welcome">
+                    <b>สวัสดีครับ!</b> ยินดีต้อนรับเข้าสู่เว็บไซต์ส่วนตัวของ <b>imes</b>
+                    - คอลเลกชันลิงก์ร้านค้า ชุมชน และเครือข่ายสังคมของผม
+                    &nbsp;<span class="new">NEW!</span>
+                </div>
+
+                <table class="sect store" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="shead">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M2.5 3.5h1.7l.9 5.6h6.2l.9-3.9H6.2' fill='none' stroke='%23303030' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/><circle cx='6.1' cy='11.4' r='1' fill='%23303030'/><circle cx='11.3' cy='11.4' r='1' fill='%23303030'/></svg>"
+                                width="14" height="14" alt="" />
+                            Store - ร้านค้า <span class="th">(1 ลิงก์)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sbody">
+                            <table class="dir" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a
+                                            href="https://www.roblox.com/catalog?CreatorName=cTicket&CreatorType=Group&salesTypeFilter=1">Roblox
+                                            UGC</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="ds">Roblox catalog items</td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="sect community" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="shead">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><circle cx='4.5' cy='5' r='1.8' fill='%234070b0' stroke='%231f3f80' stroke-width='0.6'/><path d='M1.5 12c0-2 1.4-3.4 3-3.4s3 1.4 3 3.4' fill='%234070b0' stroke='%231f3f80' stroke-width='0.6'/><circle cx='9.8' cy='5' r='1.8' fill='%234070b0' stroke='%231f3f80' stroke-width='0.6'/><path d='M6.8 12c0-2 1.4-3.4 3-3.4s3 1.4 3 3.4' fill='%234070b0' stroke='%231f3f80' stroke-width='0.6'/></svg>"
+                                width="14" height="14" alt="" />
+                            Community - ชุมชน <span class="th">(2 ลิงก์)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sbody">
+                            <table class="dir" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://discord.gg/qEt9XhZBuP">Roblox and TikTok projects
+                                            Discord Server</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="ds">โปรเจกต์ Roblox/TikTok</td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                                <tr>
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://discord.gg/E8f6D6XqbW">Geometry Dash and Geode SDK
+                                            modding Discord Server</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="ds">ม็อดดิ้ง GD/Geode</td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="sect socials" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="shead">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><circle cx='7' cy='7' r='5.5' fill='%2340a0ff' stroke='%23002860' stroke-width='0.8'/><path d='M1.5 7h11M7 1.5v11' fill='none' stroke='%23ffffff' stroke-width='0.5'/><path d='M3 3.5c2.5 1.5 5 1.5 8 0M3 10.5c2.5-1.5 5-1.5 8 0' fill='none' stroke='%23ffffff' stroke-width='0.4'/></svg>"
+                                width="14" height="14" alt="" />
+                            Socials - เครือข่ายสังคม <span class="th">(7 ลิงก์)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sbody">
+                            <table class="dir" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://github.com/ItMe12s">GitHub</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="ds">ซอร์สโค้ด/โปรเจกต์</td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                                <tr>
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://www.instagram.com/i._.mes2/">Instagram</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="ds">รูปภาพ/สแตตัส</td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                                <tr>
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://www.tiktok.com/@itme12s">TikTok</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="ds">คลิปวิดีโอสั้น</td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                                <tr>
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://x.com/ludQC_QA">Twitter / X</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="ds">ทวีต/อัปเดต</td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                                <tr>
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://www.youtube.com/@ItMe12s">YouTube</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="ds">ช่องวิดีโอ</td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                                <tr>
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://www.twitch.tv/imes_s">Twitch</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="ds">สตรีมสด</td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                                <tr>
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://www.roblox.com/users/784247040/profile">Roblox</a>
+                                    </td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="ds">โปรไฟล์ Roblox</td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+                <table class="sect mods" id="mods" cellpadding="0" cellspacing="0">
+                    <tr>
+                        <td class="shead">
+                            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M6 1h2l.4 1.8c.4.2.8.4 1.1.7l1.7-.6.9 1.6-1.3 1.3c.05.4.05.8 0 1.2l1.3 1.3-.9 1.6-1.7-.6c-.3.3-.7.5-1.1.7L8 13H6l-.4-1.8c-.4-.2-.8-.4-1.1-.7l-1.7.6-.9-1.6 1.3-1.3a4 4 0 0 1 0-1.2L1.9 5.5l.9-1.6 1.7.6c.3-.3.7-.5 1.1-.7z' fill='%23909090' stroke='%23333333' stroke-width='0.6'/><circle cx='7' cy='7' r='1.8' fill='%23cccccc' stroke='%23333333' stroke-width='0.6'/></svg>"
+                                width="14" height="14" alt="" />
+                            Popular Geometry Dash Mods - ม็อดยอดนิยม <span class="th">(3 ลิงก์)</span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="sbody">
+                            <table class="dir" cellpadding="0" cellspacing="0">
+                                <tr data-repo="ItMe12s/LuauAPI">
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://github.com/ItMe12s/LuauAPI/">LuauAPI</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="dstars"></td>
+                                    <td class="dlang"></td>
+                                    <td class="ds"></td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                                <tr data-repo="ItMe12s/Git-Editor">
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://github.com/ItMe12s/Git-Editor">Git-Editor</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="dstars"></td>
+                                    <td class="dlang"></td>
+                                    <td class="ds"></td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                                <tr data-repo="ItMe12s/wavefix">
+                                    <td class="di"><img
+                                            src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3 1h5l2 2v9H3z' fill='%23fff' stroke='%23808080'/><path d='M8 1v2h2' fill='none' stroke='%23808080'/></svg>"
+                                            width="14" height="14" alt="" /></td>
+                                    <td class="dn"><a href="https://github.com/ItMe12s/wavefix">wavefix</a></td>
+                                    <td class="dd"><span class="leader">&nbsp;</span></td>
+                                    <td class="dstars"></td>
+                                    <td class="dlang"></td>
+                                    <td class="ds"></td>
+                                    <td class="dr">&raquo;</td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+
+                <div class="ucbar">
+                    <span>[!] หน้านี้กำลังก่อสร้าง (Under Construction) [!]</span>
+                </div>
+
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2" class="footrow">
+                <div>
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><circle cx='7' cy='7' r='6' fill='%2340a0ff' stroke='%23002860' stroke-width='1'/><path d='M1 7h12M7 1v12' fill='none' stroke='%23ffffff' stroke-width='0.7'/><path d='M3 3c3 2 5 2 8 0M3 11c3-2 5-2 8 0' fill='none' stroke='%23ffffff' stroke-width='0.6'/></svg>"
+                        width="14" height="14" alt="" />
+                    Webmaster: <span class="redact">█████████████</span>
+                    &nbsp;|&nbsp;
+                    <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='14' viewBox='0 0 20 14'><rect width='20' height='14' fill='%23ed1c24'/><rect y='3' width='20' height='8' fill='%23ffffff'/><rect y='5' width='20' height='4' fill='%23242c8f'/></svg>"
+                        width="20" height="14" alt="TH" /> +66 <span class="redact">██████████</span>
+                </div>
+                <div class="hr" style="max-width:760px;margin:7px auto;"></div>
+                <div>
+                    อัปเดตล่าสุด (Last updated): 2 กันยายน 2551 / 02/09/2008<br />
+                    &copy; 2008 imes.in.th - All Rights Reserved. ห้ามคัดลอกโดยไม่ได้รับอนุญาต
+                </div>
+                <div class="badges">
+                    <span class="badge">Best viewed 1024&times;768</span>
+                    <span class="badge ie">Internet Explorer 5.0</span>
+                    <span class="badge nn">Netscape 4.7</span>
+                    <span class="badge">Made with Notepad</span>
+                    <span class="badge">HTML 4.01</span>
+                    <span class="badge">แบนด์วิดท์ 56K</span>
+                </div>
+            </td>
+        </tr>
+
+    </table>
+
+    <div style="text-align:center; padding:10px 8px 18px; font-size:12px; color:#404040;">
+        &copy; 2026 imes.in.th
+    </div>
+
 </body>
+
+</html>
