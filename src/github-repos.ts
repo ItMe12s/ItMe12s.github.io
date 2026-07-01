@@ -26,6 +26,8 @@ const LANG_COLORS: Record<string, string> = {
   Rust: '#dea584', Go: '#00ADD8', Ruby: '#701516', PHP: '#4F5D95',
 };
 
+let repoRetryBar: HTMLElement | null = null;
+
 function langColor(l: string | null): string {
   return l ? (LANG_COLORS[l] ?? '#6a6a6a') : '#6a6a6a';
 }
@@ -48,9 +50,32 @@ function paint(row: Element, d: RepoCacheEntry): void {
   if (des) des.textContent = typeof d.d === 'string' && d.d.length ? d.d : '';
 }
 
-export function initGitHubRepos(): void {
+function showRepoRetry(): void {
+  if (repoRetryBar) return;
+  const sbody = document.querySelector('#mods .sbody');
+  if (!sbody) return;
+  const btn = el('button', { class: 'repo-retry-btn', type: 'button' }, '\u21BB \u0e25\u0e2d\u0e07\u0e43\u0e2b\u0e21\u0e48');
+  btn.addEventListener('click', () => {
+    repoRetryBar?.remove();
+    repoRetryBar = null;
+    initGitHubRepos(true);
+  });
+  repoRetryBar = el('div', { class: 'repo-retry-bar', id: 'repo-retry-bar', role: 'alert' },
+    el('span', { class: 'repo-retry-icon', 'aria-hidden': 'true' }, '\u26A0'),
+    el('span', { class: 'repo-retry-msg' },
+      '\u0e42\u0e2b\u0e25\u0e14\u0e2a\u0e16\u0e34\u0e15 GitHub \u0e44\u0e21\u0e48\u0e44\u0e14\u0e49 \u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25\u0e2d\u0e32\u0e08\u0e44\u0e21\u0e48\u0e40\u0e1b\u0e47\u0e19\u0e1b\u0e31\u0e08\u0e08\u0e38\u0e1a\u0e31\u0e19',
+    ),
+    btn,
+  );
+  sbody.prepend(repoRetryBar);
+}
+
+export function initGitHubRepos(force = false): void {
   const rows = document.querySelectorAll('tr[data-repo]');
   if (!rows.length) return;
+
+  repoRetryBar?.remove();
+  repoRetryBar = null;
 
   const now = Date.now();
   const cache = readJson<RepoCache>(STORE, {});
@@ -66,11 +91,13 @@ export function initGitHubRepos(): void {
       fresh = false;
     }
   }
-  if (fresh) return;
+  if (fresh && !force) return;
 
   for (const row of rows) {
     const repo = row.getAttribute('data-repo');
     if (!repo) continue;
+    const stale = cache[repo];
+    if (!force && stale && (now - stale.t) < TTL) continue;
 
     fetch(`https://api.github.com/repos/${repo}`, {
       headers: {
@@ -78,9 +105,11 @@ export function initGitHubRepos(): void {
         'X-GitHub-Api-Version': '2026-03-10',
       },
     })
-      .then((r) => (r.ok ? r.json() : null) as Promise<GitHubRepoResponse | null>)
+      .then((r) => {
+        if (!r.ok) throw new Error(String(r.status));
+        return r.json() as Promise<GitHubRepoResponse>;
+      })
       .then((d) => {
-        if (!d) return;
         const data: RepoCacheEntry = {
           t: Date.now(),
           s: typeof d.stargazers_count === 'number' ? d.stargazers_count : null,
@@ -92,6 +121,9 @@ export function initGitHubRepos(): void {
         c[repo] = data;
         writeJson(STORE, c);
       })
-      .catch(() => { /* ponytail: API fail silent */ });
+      .catch(() => {
+        if (stale) paint(row, stale);
+        showRepoRetry();
+      });
   }
 }

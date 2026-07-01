@@ -483,6 +483,59 @@ img {
     text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
 }
 
+.repo-retry-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    flex-wrap: wrap;
+    background: #fff0e8;
+    border: 1px solid #d08070;
+    border-radius: 3px;
+    padding: 6px 8px;
+    margin-bottom: 8px;
+}
+
+.repo-retry-icon {
+    flex: 0 0 auto;
+    align-self: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #902828;
+    line-height: 1;
+}
+
+.repo-retry-msg {
+    flex: 1 1 180px;
+    font-size: 13px;
+    line-height: 1.35;
+    color: #5a2828;
+}
+
+.repo-retry-btn {
+    flex: 0 0 auto;
+    border: 1px solid #802020;
+    background: linear-gradient(180deg, #f08878 0%, #c84848 55%, #a03030 100%);
+    font: bold 13px Tahoma, sans-serif;
+    color: #fff;
+    padding: 4px 12px;
+    cursor: pointer;
+    border-radius: 4px;
+    white-space: nowrap;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45),
+        0 1px 0 #601818;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, 0.35);
+    transition: transform 0.04s ease, box-shadow 0.04s ease, filter 0.04s ease;
+}
+
+.repo-retry-btn:hover {
+    filter: brightness(1.06);
+}
+
+.repo-retry-btn:active {
+    transform: translateY(1px);
+    box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
 .welcome {
     background: #ffffcc;
     border: 1px solid #808080;
