@@ -409,6 +409,24 @@ img {
     background: linear-gradient(180deg, #7a9bc0 0%, #5a7ba0 100%);
 }
 
+.inline-controls {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 4px;
+}
+
+.inline-controls .inp {
+    flex: 1 1 auto;
+    min-width: 0;
+    width: auto;
+}
+
+.inline-controls .btn {
+    flex: 0 0 auto;
+    white-space: nowrap;
+}
+
 .footrow {
     background: #c0c0c0;
     padding: 8px 10px;

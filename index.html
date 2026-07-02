@@ -75,8 +75,10 @@
                     </tr>
                     <tr>
                         <td class="wbody">
-                            <input type="text" class="inp" id="q" style="width:130px;" />
-                            <input type="button" class="btn" value="Go" /><br />
+                            <div class="inline-controls">
+                                <input type="text" class="inp" id="q" />
+                                <input type="button" class="btn" value="Go" />
+                            </div>
                             <span style="font-size:13px;">ค้นหาในเว็บนี้</span>
                         </td>
                     </tr>
@@ -88,9 +90,10 @@
                     </tr>
                     <tr>
                         <td class="wbody" style="text-align:center;">
-                            <span class="lcd">00246813</span><br />
+                            <span
+                                class="lcd"><span>0</span><span>0</span><span>2</span><span>4</span><span>6</span><span>8</span><span>1</span><span>3</span></span><br />
                             <span style="font-size:13px;">ตั้งแต่วันที่ 1 ม.ค. 2542</span><br />
-                            <span style="font-size:13px;">วันนี้: <b>0043</b> &nbsp; เมื่อวาน: <b>0058</b></span>
+                            <span style="font-size:13px;">วันนี้: <b>43</b> &nbsp; เมื่อวาน: <b>58</b></span>
                         </td>
                     </tr>
                 </table>
@@ -106,7 +109,7 @@
                             <input type="radio" name="p" id="p2" /><label for="p2"> ชอบ</label><br />
                             <input type="radio" name="p" id="p3" /><label for="p3"> ปกติ</label><br />
                             <input type="radio" name="p" id="p4" /><label for="p4"> ไม่ชอบ</label><br />
-                            <div style="margin-top:3px;">
+                            <div class="inline-controls" style="margin-top:3px;">
                                 <input type="button" class="btn" id="pollvote" value="โหวต!" />
                                 <input type="button" class="btn" id="pollundo" value="ยกเลิกโหวต"
                                     style="display:none;" />
