@@ -32,6 +32,18 @@ function langColor(l: string | null): string {
   return l ? (LANG_COLORS[l] ?? '#6a6a6a') : '#6a6a6a';
 }
 
+function sortRowsByStars(): void {
+  const dir = document.querySelector('#mods .dir');
+  if (!dir) return;
+  const rows = Array.from(dir.querySelectorAll('tr[data-repo]'));
+  const stars = (row: Element) => {
+    const n = parseInt((row.querySelector('.dstars')?.textContent ?? '').replace(/\u2605/, ''), 10);
+    return Number.isFinite(n) ? n : -1;
+  };
+  rows.sort((a, b) => stars(b) - stars(a));
+  for (const r of rows) dir.append(r);
+}
+
 function paint(row: Element, d: RepoCacheEntry): void {
   const s = row.querySelector('.dstars');
   const l = row.querySelector('.dlang');
@@ -48,6 +60,7 @@ function paint(row: Element, d: RepoCacheEntry): void {
     }
   }
   if (des) des.textContent = typeof d.d === 'string' && d.d.length ? d.d : '';
+  sortRowsByStars();
 }
 
 function showRepoRetry(): void {
