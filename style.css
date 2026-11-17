@@ -93,6 +93,7 @@ img {
 }
 
 .navbar a {
+    white-space: nowrap;
     color: #000080;
     padding: 0 4px;
 }
@@ -432,6 +433,10 @@ img {
     text-align: center;
 }
 
+.contact > span {
+    white-space: nowrap;
+}
+
 .footrow td {
     font-size: 13px;
 }
@@ -628,7 +633,20 @@ img {
     }
 
     .navbar {
-        line-height: 1.8;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 4px 8px;
+    }
+
+    .sep {
+        display: none;
+    }
+
+    .contact {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .dir tr {
