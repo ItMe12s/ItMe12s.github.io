@@ -22,7 +22,7 @@ function linkRow(link: LinkEntry, isMod: boolean): HTMLTableRowElement {
       el('td', { class: 'ds' }),
     );
   } else {
-    row.append(el('td', { class: 'ds' }, link.desc));
+    row.append(el('td', { class: 'ds' }, link.award && el('span', { class: 'award' }, `🏆 ${link.award}`), ' ', link.desc));
   }
   row.append(el('td', { class: 'dr' }, '\u00bb'));
   return row;

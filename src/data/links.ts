@@ -3,11 +3,12 @@ export type LinkEntry = {
   label: string;
   desc: string;
   repo?: string;
+  award?: string;
 };
 
 export type LinkSection = {
   id: string;
-  cssClass: 'store' | 'games' | 'community' | 'socials' | 'mods';
+  cssClass: 'store' | 'games' | 'wallpapers' | 'community' | 'socials' | 'mods';
   titleEn: string;
   titleTh: string;
   headerIcon: string;
@@ -46,6 +47,20 @@ export const SECTIONS: LinkSection[] = [
         label: 'Word Link!',
         desc: 'เกม Roblox',
       },
+    ],
+  },
+  {
+    id: 'wallpapers',
+    cssClass: 'wallpapers',
+    titleEn: 'Animated iOS Wallpapers',
+    titleTh: 'วอลเปเปอร์เคลื่อนไหว',
+    headerIcon:
+      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><rect x='3.5' y='0.5' width='7' height='13' rx='1.5' fill='%23303030'/><rect x='4.5' y='2' width='5' height='9' fill='%23a070ff'/><circle cx='6' cy='5' r='0.6' fill='%23fff'/><circle cx='8.2' cy='6.8' r='0.5' fill='%23fff'/><circle cx='6.6' cy='8.8' r='0.4' fill='%23fff'/><circle cx='7' cy='12.3' r='0.5' fill='%23aaa'/></svg>",
+    links: [
+      { href: 'https://cowabun.ga/wallpapers?section=custom&id=105', label: 'Black Hole', desc: 'การประกวดวอลเปเปอร์ครั้งแรก', award: 'อันดับ 1' },
+      { href: 'https://cowabun.ga/wallpapers?section=custom&id=108', label: 'Rolling Hills', desc: '', award: 'Best use of iOS 26 gyro' },
+      { href: 'https://cowabun.ga/wallpapers?section=custom&id=35', label: 'Neon Lines', desc: 'วอลเปเปอร์อนิเมชัน iOS' },
+      { href: 'https://cowabun.ga/wallpapers?section=custom&id=36', label: 'I am in.', desc: 'วอลเปเปอร์อนิเมชัน iOS' },
     ],
   },
   {

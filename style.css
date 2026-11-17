@@ -269,6 +269,24 @@ img {
     border-color: #1f8a8a;
 }
 
+.sect.wallpapers .shead {
+    background: linear-gradient(180deg, #f490d0 0%, #b0307a 100%);
+}
+
+.sect.wallpapers {
+    border-color: #b0307a;
+}
+
+.award {
+    background: linear-gradient(180deg, #ffe680 0%, #e0a800 100%);
+    color: #402800;
+    font: bold 11px Tahoma, sans-serif;
+    padding: 1px 5px;
+    border: 1px solid #8a6200;
+    border-radius: 3px;
+    white-space: nowrap;
+}
+
 .sect.community .shead {
     background: linear-gradient(180deg, #f5b860 0%, #c47020 100%);
 }
@@ -569,6 +587,18 @@ img {
     .side {
         width: 200px;
     }
+
+    .navbar {
+        line-height: 1.8;
+    }
+
+    .navbar a {
+        margin-right: 4px;
+    }
+
+    .navbar .sep {
+        display: none;
+    }
 }
 
 @media (max-width: 900px) {
@@ -632,14 +662,7 @@ img {
         padding-top: 0;
     }
 
-    .navbar {
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        gap: 4px 8px;
-    }
-
-    .sep {
+    .contact .sep {
         display: none;
     }
 
