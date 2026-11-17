@@ -601,32 +601,40 @@ img {
         display: block;
     }
 
+    /* Content row: search on top, links, then the remaining widgets
+       (two columns on tablets, one on phones) */
     .frame > tbody > tr {
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
     }
 
     .frame > tbody > tr > td {
         display: block;
         width: auto;
+        flex: 1 1 100%;
+    }
+
+    .frame > tbody > tr > td.side {
+        display: contents;
+    }
+
+    .side .widget {
+        flex: 1 1 260px;
+        align-self: flex-start;
+        min-width: 0;
+        width: auto;
+        margin: 10px;
+    }
+
+    .side .widget.w-search {
+        flex-basis: calc(100% - 20px);
+        order: -2;
     }
 
     .main {
         order: -1;
-    }
-
-    .frame > tbody > tr > td.side {
-        width: auto;
-        border-right: none;
         border-top: 1px solid #808080;
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 10px;
-        align-items: start;
-    }
-
-    .side .widget {
-        margin-bottom: 0;
+        border-bottom: 1px solid #808080;
     }
 
     .titlebar .big {
@@ -696,9 +704,16 @@ img {
 
 /* Small phones */
 @media (max-width: 400px) {
-    .main,
-    .side {
+    .main {
         padding: 6px;
+    }
+
+    .side .widget {
+        margin: 6px;
+    }
+
+    .side .widget.w-search {
+        flex-basis: calc(100% - 12px);
     }
 
     .titlebar .big {
