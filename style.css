@@ -427,7 +427,7 @@ img {
 .inline-controls .inp {
     flex: 1 1 auto;
     min-width: 0;
-    width: auto;
+    width: 0;
 }
 
 .inline-controls .btn {
@@ -570,9 +570,63 @@ img {
     margin-bottom: 10px;
 }
 
-@media (max-width: 720px) {
+/* ---------- Responsive ---------- */
+
+/* Mid widths (small laptops / tablets landscape): slimmer sidebar */
+@media (max-width: 1000px) {
     .side {
-        width: 170px;
+        width: 200px;
+    }
+}
+
+/* Phones / tablets portrait: stack content above sidebar */
+@media (max-width: 900px) {
+
+    html,
+    body,
+    .frame td {
+        font-size: 13px;
+    }
+
+    .frame {
+        display: block;
+        margin: 6px auto;
+        width: auto;
+        max-width: none;
+        margin-left: 6px;
+        margin-right: 6px;
+    }
+
+    .frame > tbody {
+        display: block;
+    }
+
+    .frame > tbody > tr {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .frame > tbody > tr > td {
+        display: block;
+        width: auto;
+    }
+
+    .main {
+        order: -1;
+    }
+
+    .frame > tbody > tr > td.side {
+        width: auto;
+        border-right: none;
+        border-top: 1px solid #808080;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 10px;
+        align-items: start;
+    }
+
+    .side .widget {
+        margin-bottom: 0;
     }
 
     .titlebar .big {
@@ -582,14 +636,77 @@ img {
     .titlebar .right {
         float: none;
         display: block;
+        padding-top: 0;
     }
 
-    html,
-    body {
-        font-size: 13px;
+    .navbar {
+        line-height: 1.8;
     }
 
-    .frame td {
-        font-size: 13px;
+    /* Link directory rows become two-line cards: name on top, description below */
+    .dir,
+    .dir > tbody {
+        display: block;
+    }
+
+    .dir tr {
+        display: grid;
+        grid-template-columns: 18px minmax(0, 1fr) auto;
+        grid-template-areas:
+            "i n r"
+            ". d d";
+        align-items: center;
+        padding: 4px 0;
+        border-bottom: 1px dotted #bbb;
+    }
+
+    .dir tr:last-child {
+        border-bottom: none;
+    }
+
+    .dir td {
+        display: block;
+        padding: 1px 4px;
+    }
+
+    .di { grid-area: i; }
+    .dn { grid-area: n; white-space: normal; overflow-wrap: anywhere; }
+    .dir td.dd { display: none; }
+    .ds { grid-area: d; white-space: normal; }
+    .dr { grid-area: r; }
+
+    .dir td.ds:empty {
+        display: none;
+    }
+
+    .sect.mods .dir tr {
+        grid-template-columns: 18px minmax(0, 1fr) auto auto auto;
+        grid-template-areas:
+            "i n s l r"
+            ". d d d d";
+    }
+
+    .dstars { grid-area: s; }
+    .dlang { grid-area: l; }
+
+    .badge {
+        margin: 2px;
+    }
+}
+
+/* Small phones */
+@media (max-width: 400px) {
+    .main,
+    .side {
+        padding: 6px;
+    }
+
+    .titlebar .big {
+        font-size: 18px;
+    }
+
+    .badge {
+        font-size: 11px;
+        padding: 2px 5px;
     }
 }
