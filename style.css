@@ -270,6 +270,14 @@ img {
     border-color: #3a8a3a;
 }
 
+.sect.games .shead {
+    background: linear-gradient(180deg, #6ed4d4 0%, #1f8a8a 100%);
+}
+
+.sect.games {
+    border-color: #1f8a8a;
+}
+
 .sect.community .shead {
     background: linear-gradient(180deg, #f5b860 0%, #c47020 100%);
 }

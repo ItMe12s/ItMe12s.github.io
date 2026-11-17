@@ -7,7 +7,7 @@ export type LinkEntry = {
 
 export type LinkSection = {
   id: string;
-  cssClass: 'store' | 'community' | 'socials' | 'mods';
+  cssClass: 'store' | 'games' | 'community' | 'socials' | 'mods';
   titleEn: string;
   titleTh: string;
   headerIcon: string;
@@ -30,6 +30,21 @@ export const SECTIONS: LinkSection[] = [
         href: 'https://www.roblox.com/catalog?CreatorName=cTicket&CreatorType=Group&salesTypeFilter=1',
         label: 'Roblox UGC',
         desc: 'Roblox catalog items',
+      },
+    ],
+  },
+  {
+    id: 'games',
+    cssClass: 'games',
+    titleEn: 'My Games',
+    titleTh: 'เกมของผม',
+    headerIcon:
+      "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M3.5 4h7c1.6 0 2.5 1.2 2.5 3.2 0 2.2-.6 3.8-1.8 3.8-1 0-1.5-1.3-2.4-1.3H5.2c-.9 0-1.4 1.3-2.4 1.3C1.6 11 1 9.4 1 7.2 1 5.2 1.9 4 3.5 4z' fill='%23e0e0e0' stroke='%23303030' stroke-width='0.8'/><path d='M4.2 5.7v2.4M3 6.9h2.4' stroke='%23303030' stroke-width='0.9'/><circle cx='9.6' cy='6.2' r='0.7' fill='%23c04040'/><circle cx='10.8' cy='7.6' r='0.7' fill='%234070b0'/></svg>",
+    links: [
+      {
+        href: 'https://www.roblox.com/games/133442653448670/Word-Link',
+        label: 'Word Link!',
+        desc: 'เกม Roblox',
       },
     ],
   },

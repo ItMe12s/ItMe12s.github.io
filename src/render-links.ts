@@ -30,7 +30,7 @@ function linkRow(link: LinkEntry, isMod: boolean): HTMLTableRowElement {
 
 function renderSection(section: LinkSection): HTMLTableElement {
   const tableAttrs: ElAttrs = { class: `sect ${section.cssClass}`, cellpadding: '0', cellspacing: '0' };
-  if (section.id === 'mods') tableAttrs.id = 'mods';
+  tableAttrs.id = section.id;
 
   const table = el('table', tableAttrs) as HTMLTableElement;
   const count = section.links.length;
