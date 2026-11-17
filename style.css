@@ -408,14 +408,16 @@ img {
 .inp {
     border: 1px inset #c0c0c0;
     background: #fff;
-    font: 14px Tahoma;
+    font-family: inherit;
+    font-size: 14px;
     padding: 2px 3px;
 }
 
 .btn {
     border: 1px solid #0a3a8c;
     background: linear-gradient(180deg, #5a9bff 0%, #1a55c4 55%, #0a3a8c 100%);
-    font: 14px Tahoma;
+    font-family: inherit;
+    font-size: 14px;
     color: #fff;
     padding: 3px 12px;
     cursor: pointer;
