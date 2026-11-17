@@ -5,7 +5,8 @@ function icon(src: string): HTMLImageElement {
   return el('img', { src, width: 14, height: 14, alt: '' });
 }
 
-function linkRow(link: LinkEntry): HTMLTableRowElement {
+// Every row in a section with awards gets an award cell (maybe empty) so desktop columns line up.
+function linkRow(link: LinkEntry, hasAwards: boolean): HTMLTableRowElement {
   const row = el('tr', { 'data-repo': link.repo },
     el('td', { class: 'di' }, icon(DOC_ICON)),
     el('td', { class: 'dn' }, el('a', { href: link.href }, link.label)),
@@ -15,7 +16,8 @@ function linkRow(link: LinkEntry): HTMLTableRowElement {
   if (link.repo) {
     row.append(el('td', { class: 'dstars' }), el('td', { class: 'dlang' }), el('td', { class: 'ds' }));
   } else {
-    row.append(el('td', { class: 'ds' }, link.award && el('span', { class: 'award' }, `🏆 ${link.award}`), link.desc));
+    if (hasAwards) row.append(el('td', { class: 'daward' }, link.award && el('span', { class: 'award' }, `🏆 ${link.award}`)));
+    row.append(el('td', { class: 'ds' }, link.desc));
   }
   row.append(el('td', { class: 'dr' }, '»'));
   return row;
@@ -23,7 +25,9 @@ function linkRow(link: LinkEntry): HTMLTableRowElement {
 
 function renderSection(section: LinkSection): HTMLTableElement {
   const count = section.links.length;
-  const dir = el('table', { class: 'dir', cellpadding: 0, cellspacing: 0 }, ...section.links.map(linkRow));
+  const hasAwards = section.links.some((l) => l.award);
+  const dir = el('table', { class: hasAwards ? 'dir has-awards' : 'dir', cellpadding: 0, cellspacing: 0 },
+    ...section.links.map((l) => linkRow(l, hasAwards)));
 
   return el('table', { id: section.id, class: `sect ${section.id}`, cellpadding: 0, cellspacing: 0 },
     el('tr', undefined,

@@ -55,10 +55,10 @@ export const SECTIONS: LinkSection[] = [
     headerIcon:
       "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><rect x='3.5' y='0.5' width='7' height='13' rx='1.5' fill='%23303030'/><rect x='4.5' y='2' width='5' height='9' fill='%23a070ff'/><circle cx='6' cy='5' r='0.6' fill='%23fff'/><circle cx='8.2' cy='6.8' r='0.5' fill='%23fff'/><circle cx='6.6' cy='8.8' r='0.4' fill='%23fff'/><circle cx='7' cy='12.3' r='0.5' fill='%23aaa'/></svg>",
     links: [
-      { href: 'https://cowabun.ga/wallpapers?section=custom&id=105', label: 'Black Hole', desc: "World's first contest", award: '1st place' },
-      { href: 'https://cowabun.ga/wallpapers?section=custom&id=108', label: 'Rolling Hills', award: 'Best use of iOS 26 gyro' },
-      { href: 'https://cowabun.ga/wallpapers?section=custom&id=35', label: 'Neon Lines', desc: 'Animated iOS wallpaper' },
-      { href: 'https://cowabun.ga/wallpapers?section=custom&id=36', label: 'I am in.', desc: 'Animated iOS wallpaper' },
+      { href: 'https://cowabun.ga/wallpapers?section=custom&id=105', label: 'Black Hole', desc: "World's first animated iOS competition", award: '1st place' },
+      { href: 'https://cowabun.ga/wallpapers?section=custom&id=108', label: 'Rolling Hills', desc: 'Made for fun and testing out gyro', award: 'Best use of iOS 26 gyro' },
+      { href: 'https://cowabun.ga/wallpapers?section=custom&id=35', label: 'Neon Lines', desc: "Based on Snow's Neon Lines 4K" },
+      { href: 'https://cowabun.ga/wallpapers?section=custom&id=36', label: 'I am in.', desc: 'Digital rain made from particles only' },
     ],
   },
   {

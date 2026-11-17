@@ -294,6 +294,10 @@ img {
     border-color: #b0307a;
 }
 
+.daward {
+    text-align: right;
+}
+
 .award {
     background: linear-gradient(180deg, #4a4a4a 0%, #1a1a1a 100%);
     color: #ffd040;
@@ -302,7 +306,6 @@ img {
     border: 1px solid #b08000;
     border-radius: 3px;
     white-space: nowrap;
-    margin-right: 4px;
 }
 
 .sect.community .shead {
@@ -709,6 +712,11 @@ img {
         grid-template-areas: "i n s l r" ". d d d d";
     }
 
+    .dir.has-awards tr {
+        grid-template-columns: 18px minmax(0, 1fr) auto auto;
+        grid-template-areas: "i n a r" ". d d d";
+    }
+
     .dir tr:last-child {
         border-bottom: none;
     }
@@ -719,7 +727,8 @@ img {
     }
 
     .dir td.dd,
-    .dir td.ds:empty {
+    .dir td.ds:empty,
+    .dir td.daward:empty {
         display: none;
     }
 
@@ -728,6 +737,7 @@ img {
     .ds { grid-area: d; white-space: normal; }
     .dstars { grid-area: s; }
     .dlang { grid-area: l; }
+    .daward { grid-area: a; }
     .dr { grid-area: r; }
 
     .badge {
