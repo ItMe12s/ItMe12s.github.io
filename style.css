@@ -152,16 +152,6 @@ img {
     line-height: 1.7;
 }
 
-.wbody ul {
-    margin: 0;
-    padding-left: 4px;
-    list-style: none;
-}
-
-.wbody li {
-    padding: 2px 0;
-}
-
 .lcd {
     display: inline-block;
     background: #000;
@@ -570,16 +560,12 @@ img {
     margin-bottom: 10px;
 }
 
-/* ---------- Responsive ---------- */
-
-/* Mid widths (small laptops / tablets landscape): slimmer sidebar */
 @media (max-width: 1000px) {
     .side {
         width: 200px;
     }
 }
 
-/* Phones / tablets portrait: stack content above sidebar */
 @media (max-width: 900px) {
 
     html,
@@ -589,28 +575,26 @@ img {
     }
 
     .frame {
+        --gap: 10px;
         display: block;
-        margin: 6px auto;
         width: auto;
-        max-width: none;
-        margin-left: 6px;
-        margin-right: 6px;
+        margin: 6px;
     }
 
-    .frame > tbody {
+    .frame > tbody,
+    .dir,
+    .dir > tbody {
         display: block;
     }
 
-    /* Content row: search on top, links, then the remaining widgets
-       (two columns on tablets, one on phones) */
     .frame > tbody > tr {
         display: flex;
         flex-wrap: wrap;
+        align-items: flex-start;
     }
 
     .frame > tbody > tr > td {
         display: block;
-        width: auto;
         flex: 1 1 100%;
     }
 
@@ -620,21 +604,17 @@ img {
 
     .side .widget {
         flex: 1 1 260px;
-        align-self: flex-start;
-        min-width: 0;
-        width: auto;
-        margin: 10px;
+        margin: var(--gap);
     }
 
-    .side .widget.w-search {
-        flex-basis: calc(100% - 20px);
+    .side .w-search {
+        flex-basis: calc(100% - 2 * var(--gap));
         order: -2;
     }
 
     .main {
         order: -1;
-        border-top: 1px solid #808080;
-        border-bottom: 1px solid #808080;
+        border-block: 1px solid #808080;
     }
 
     .titlebar .big {
@@ -651,21 +631,18 @@ img {
         line-height: 1.8;
     }
 
-    /* Link directory rows become two-line cards: name on top, description below */
-    .dir,
-    .dir > tbody {
-        display: block;
-    }
-
     .dir tr {
         display: grid;
         grid-template-columns: 18px minmax(0, 1fr) auto;
-        grid-template-areas:
-            "i n r"
-            ". d d";
+        grid-template-areas: "i n r" ". d d";
         align-items: center;
         padding: 4px 0;
         border-bottom: 1px dotted #bbb;
+    }
+
+    .sect.mods .dir tr {
+        grid-template-columns: 18px minmax(0, 1fr) auto auto auto;
+        grid-template-areas: "i n s l r" ". d d d d";
     }
 
     .dir tr:last-child {
@@ -677,43 +654,30 @@ img {
         padding: 1px 4px;
     }
 
-    .di { grid-area: i; }
-    .dn { grid-area: n; white-space: normal; overflow-wrap: anywhere; }
-    .dir td.dd { display: none; }
-    .ds { grid-area: d; white-space: normal; }
-    .dr { grid-area: r; }
-
+    .dir td.dd,
     .dir td.ds:empty {
         display: none;
     }
 
-    .sect.mods .dir tr {
-        grid-template-columns: 18px minmax(0, 1fr) auto auto auto;
-        grid-template-areas:
-            "i n s l r"
-            ". d d d d";
-    }
-
+    .di { grid-area: i; }
+    .dn { grid-area: n; white-space: normal; overflow-wrap: anywhere; }
+    .ds { grid-area: d; white-space: normal; }
     .dstars { grid-area: s; }
     .dlang { grid-area: l; }
+    .dr { grid-area: r; }
 
     .badge {
         margin: 2px;
     }
 }
 
-/* Small phones */
 @media (max-width: 400px) {
+    .frame {
+        --gap: 6px;
+    }
+
     .main {
         padding: 6px;
-    }
-
-    .side .widget {
-        margin: 6px;
-    }
-
-    .side .widget.w-search {
-        flex-basis: calc(100% - 12px);
     }
 
     .titlebar .big {
