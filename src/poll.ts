@@ -1,110 +1,72 @@
 import { el } from './lib/dom';
 import { readStorage, removeStorage, writeStorage } from './lib/storage';
 
-type PollKey = 'p1' | 'p2' | 'p3' | 'p4';
-type PollState = Record<PollKey, number>;
-type PollLabels = Record<PollKey, string>;
+const STORE_KEY = 'imes_poll_vote';
 
-const POLL: { base: PollState; labels: PollLabels } = {
-  base: { p1: 670, p2: 230, p3: 80, p4: 20 },
-  labels: { p1: 'ชอบมาก', p2: 'ชอบ', p3: 'ปกติ', p4: 'ไม่ชอบ' },
+// The radio inputs in index.html use these keys as their ids.
+const OPTIONS = {
+  p1: { label: 'Love it', baseVotes: 670 },
+  p2: { label: 'Like it', baseVotes: 230 },
+  p3: { label: "It's OK", baseVotes: 80 },
+  p4: { label: 'Dislike', baseVotes: 20 },
 };
-const STORE = 'imes_poll_vote';
+type OptionKey = keyof typeof OPTIONS;
+const KEYS = Object.keys(OPTIONS) as OptionKey[];
 
-function isPollKey(k: string | null): k is PollKey {
-  return k === 'p1' || k === 'p2' || k === 'p3' || k === 'p4';
-}
-
-function total(o: PollState): number {
-  let s = 0;
-  for (const k in o) s += o[k as PollKey];
-  return s;
+function isOptionKey(value: string | null): value is OptionKey {
+  return value !== null && value in OPTIONS;
 }
 
 export function initPoll(): void {
-  const state: PollState = { ...POLL.base };
-  let voted: PollKey | null = null;
+  const results = document.getElementById('pollres');
+  const voteBtn = document.getElementById('pollvote') as HTMLInputElement | null;
+  const undoBtn = document.getElementById('pollundo');
+  const note = document.getElementById('pollnote');
+  const radios = KEYS.map((k) => document.getElementById(k) as HTMLInputElement | null);
+  if (!results || !voteBtn || !undoBtn || !note) return;
 
-  function render(): void {
-    const box = document.getElementById('pollres');
-    if (!box) return;
+  const stored = readStorage(STORE_KEY);
+  let voted: OptionKey | null = isOptionKey(stored) ? stored : null;
 
-    const t = total(state);
-    box.replaceChildren(
-      ...(Object.keys(POLL.labels) as PollKey[]).map((k) => {
-        const pct = t ? Math.round(state[k] / t * 100) : 0;
-        return el('div', { class: 'pollbar-wrap' },
-          el('div', { class: 'pollbar-row' },
-            el('span', { style: 'width:75px;display:inline-block;' }, POLL.labels[k]),
-            el('span', { class: 'pollbar-track' },
-              el('span', { class: 'pollbar-fill', style: `width:${pct}%` }),
-              el('span', { class: 'pollbar-pct' }, `${pct}%`),
-            ),
-          ),
-        );
-      }),
-      ...(voted
-        ? [el('div', { class: 'pollbar-voted' },
-          'คุณโหวตแล้ว: ',
-          el('b', undefined, POLL.labels[voted]),
-          ' (ขอบคุณครับ!)',
-        )]
-        : []),
-    );
-  }
+  const votesFor = (k: OptionKey) => OPTIONS[k].baseVotes + (voted === k ? 1 : 0);
 
-  function setLocked(locked: boolean): void {
-    const btn = document.getElementById('pollvote');
-    const undo = document.getElementById('pollundo');
-    const radios = document.getElementsByName('p');
-    for (const radio of radios) {
-      if (radio instanceof HTMLInputElement) radio.disabled = locked;
+  const render = () => {
+    const total = KEYS.reduce((sum, k) => sum + votesFor(k), 0);
+    const bars = KEYS.map((k) => {
+      const pct = Math.round((votesFor(k) / total) * 100);
+      return el('div', { class: 'pollbar-row' },
+        el('span', { class: 'pollbar-label' }, OPTIONS[k].label),
+        el('span', { class: 'pollbar-track' },
+          el('span', { class: 'pollbar-fill', style: `width:${pct}%` }),
+          el('span', { class: 'pollbar-pct' }, `${pct}%`),
+        ),
+      );
+    });
+    results.replaceChildren(...bars);
+    if (voted) {
+      results.append(el('div', { class: 'pollbar-voted' }, 'You voted: ', el('b', undefined, OPTIONS[voted].label), ' (Thanks!)'));
     }
-    if (btn instanceof HTMLButtonElement || btn instanceof HTMLInputElement) btn.disabled = locked;
-    if (undo instanceof HTMLElement) undo.style.display = locked ? '' : 'none';
-  }
 
-  const stored = readStorage(STORE);
-  if (isPollKey(stored)) voted = stored;
+    const locked = voted !== null;
+    for (const radio of radios) if (radio) radio.disabled = locked;
+    voteBtn.disabled = locked;
+    undoBtn.hidden = !locked;
+  };
 
-  if (voted) state[voted] += 1;
+  voteBtn.addEventListener('click', () => {
+    const chosen = radios.find((r) => r?.checked)?.id ?? null;
+    note.hidden = isOptionKey(chosen);
+    if (!isOptionKey(chosen)) return;
+    voted = chosen;
+    writeStorage(STORE_KEY, chosen);
+    render();
+  });
+
+  undoBtn.addEventListener('click', () => {
+    voted = null;
+    removeStorage(STORE_KEY);
+    render();
+  });
+
   render();
-  if (voted) setLocked(true);
-
-  const btn = document.getElementById('pollvote');
-  if (btn) {
-    btn.addEventListener('click', () => {
-      let chosen: PollKey | null = null;
-      const radios = document.getElementsByName('p');
-      for (const radio of radios) {
-        if (radio instanceof HTMLInputElement && radio.checked && isPollKey(radio.id)) {
-          chosen = radio.id;
-          break;
-        }
-      }
-      if (!chosen) {
-        const note = document.getElementById('pollnote');
-        if (note) note.style.display = 'block';
-        return;
-      }
-      state[chosen] += 1;
-      voted = chosen;
-      writeStorage(STORE, chosen);
-      render();
-      setLocked(true);
-      const note = document.getElementById('pollnote');
-      if (note) note.style.display = 'none';
-    });
-  }
-
-  const undo = document.getElementById('pollundo');
-  if (undo) {
-    undo.addEventListener('click', () => {
-      if (voted && state[voted] > POLL.base[voted]) state[voted] -= 1;
-      voted = null;
-      removeStorage(STORE);
-      render();
-      setLocked(false);
-    });
-  }
 }

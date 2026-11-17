@@ -2,6 +2,10 @@ html {
     scroll-behavior: smooth;
 }
 
+[hidden] {
+    display: none !important;
+}
+
 html,
 body {
     margin: 0;
@@ -26,10 +30,6 @@ a:visited {
 
 a:active {
     color: #ff0000;
-}
-
-a {
-    text-decoration: underline;
 }
 
 img {
@@ -149,8 +149,20 @@ img {
 
 .wbody {
     background: #d8d8d8;
-    padding: 8px 8px;
+    padding: 8px;
     line-height: 1.7;
+}
+
+.center {
+    text-align: center;
+}
+
+.hint {
+    font-size: 13px;
+}
+
+.error {
+    color: #cc0000;
 }
 
 .lcd {
@@ -179,15 +191,20 @@ img {
     }
 }
 
-.pollbar-wrap {
-    margin: 4px 0;
-    font-size: 13px;
+.poll-controls {
+    margin-top: 3px;
 }
 
 .pollbar-row {
     display: flex;
     align-items: center;
     gap: 4px;
+    margin: 4px 0;
+    font-size: 13px;
+}
+
+.pollbar-label {
+    flex: 0 0 75px;
 }
 
 .pollbar-track {
@@ -312,7 +329,7 @@ img {
     border-color: #b02828;
 }
 
-.shead .th {
+.shead .count {
     font-weight: normal;
     font-size: 13px;
     opacity: 0.9;
@@ -456,10 +473,6 @@ img {
     white-space: nowrap;
 }
 
-.footrow td {
-    font-size: 13px;
-}
-
 .badges {
     margin-top: 8px;
 }
@@ -492,6 +505,18 @@ img {
     background: #808080;
     border-bottom: 1px solid #fff;
     margin: 6px 0;
+}
+
+.footer-hr {
+    max-width: 760px;
+    margin: 7px auto;
+}
+
+.real-footer {
+    text-align: center;
+    padding: 10px 8px 18px;
+    font-size: 12px;
+    color: #404040;
 }
 
 .redact {

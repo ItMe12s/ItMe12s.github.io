@@ -1,4 +1,5 @@
-function storageTry<T>(fn: () => T, fallback: T): T {
+// localStorage can throw (private mode, blocked site data), so every access falls back quietly.
+function attempt<T>(fn: () => T, fallback: T): T {
   try {
     return fn();
   } catch {
@@ -6,25 +7,23 @@ function storageTry<T>(fn: () => T, fallback: T): T {
   }
 }
 
-export function readJson<T>(key: string, fallback: T): T {
-  return storageTry(
-    () => JSON.parse(localStorage.getItem(key) ?? JSON.stringify(fallback)) as T,
-    fallback,
-  );
-}
-
-export function writeJson(key: string, value: unknown): void {
-  storageTry(() => localStorage.setItem(key, JSON.stringify(value)), undefined);
-}
-
 export function readStorage(key: string): string | null {
-  return storageTry(() => localStorage.getItem(key), null);
+  return attempt(() => localStorage.getItem(key), null);
 }
 
 export function writeStorage(key: string, value: string): void {
-  storageTry(() => localStorage.setItem(key, value), undefined);
+  attempt(() => localStorage.setItem(key, value), undefined);
 }
 
 export function removeStorage(key: string): void {
-  storageTry(() => localStorage.removeItem(key), undefined);
+  attempt(() => localStorage.removeItem(key), undefined);
+}
+
+export function readJson<T>(key: string, fallback: T): T {
+  const raw = readStorage(key);
+  return raw === null ? fallback : attempt(() => JSON.parse(raw) as T, fallback);
+}
+
+export function writeJson(key: string, value: unknown): void {
+  writeStorage(key, JSON.stringify(value));
 }

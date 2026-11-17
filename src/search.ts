@@ -1,29 +1,16 @@
-function runSearch(): void {
-  const input = document.getElementById('q');
-  if (!(input instanceof HTMLInputElement)) return;
-
-  const q = input.value.toLowerCase().trim();
-  const rows = document.querySelectorAll('.dir tr');
-
-  for (const row of rows) {
-    if (!(row instanceof HTMLElement)) continue;
-    if (!q) {
-      row.style.display = '';
-      continue;
-    }
-    const t = row.textContent?.toLowerCase() ?? '';
-    row.style.display = t.includes(q) ? '' : 'none';
-  }
-}
-
+/** Filters link rows as you type; the Go button just re-runs the same filter. */
 export function initSearch(): void {
-  const input = document.getElementById('q');
-  if (!(input instanceof HTMLInputElement)) return;
+  const input = document.getElementById('q') as HTMLInputElement | null;
+  const go = document.getElementById('qgo');
+  if (!input) return;
 
-  input.addEventListener('input', runSearch);
+  const run = () => {
+    const query = input.value.toLowerCase().trim();
+    for (const row of document.querySelectorAll<HTMLElement>('.dir tr')) {
+      row.hidden = query !== '' && !(row.textContent ?? '').toLowerCase().includes(query);
+    }
+  };
 
-  const goBtn = input.parentElement?.querySelector('input.btn[value="Go"]');
-  if (goBtn instanceof HTMLInputElement) {
-    goBtn.addEventListener('click', runSearch);
-  }
+  input.addEventListener('input', run);
+  go?.addEventListener('click', run);
 }

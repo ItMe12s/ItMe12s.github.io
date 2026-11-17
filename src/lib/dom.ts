@@ -1,10 +1,11 @@
-type ElAttrs = Record<string, string | number | boolean | undefined>;
+export type Attrs = Record<string, string | number | boolean | undefined>;
+export type Child = Node | string | null | undefined | false;
 
-export function el(
-  tag: string,
-  attrs?: ElAttrs,
-  ...children: (Node | string | null | undefined)[]
-): HTMLElement {
+export function el<K extends keyof HTMLElementTagNameMap>(
+  tag: K,
+  attrs?: Attrs,
+  ...children: Child[]
+): HTMLElementTagNameMap[K] {
   const node = document.createElement(tag);
   if (attrs) {
     for (const [k, v] of Object.entries(attrs)) {
@@ -16,8 +17,8 @@ export function el(
     }
   }
   for (const child of children) {
-    if (child == null) continue;
-    node.append(child instanceof Node ? child : document.createTextNode(String(child)));
+    if (child == null || child === false) continue;
+    node.append(child);
   }
   return node;
 }

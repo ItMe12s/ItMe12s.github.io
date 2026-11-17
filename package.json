@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && node -e \"require('fs').copyFileSync('CNAME','dist/CNAME')\"",
+    "build": "tsc && vite build",
     "preview": "vite preview"
   },
   "devDependencies": {
