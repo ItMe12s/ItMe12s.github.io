@@ -1,7 +1,7 @@
 export type LinkEntry = {
   href: string;
   label: string;
-  desc: string;
+  desc?: string;
   repo?: string;
   award?: string;
 };
@@ -58,7 +58,7 @@ export const SECTIONS: LinkSection[] = [
       "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><rect x='3.5' y='0.5' width='7' height='13' rx='1.5' fill='%23303030'/><rect x='4.5' y='2' width='5' height='9' fill='%23a070ff'/><circle cx='6' cy='5' r='0.6' fill='%23fff'/><circle cx='8.2' cy='6.8' r='0.5' fill='%23fff'/><circle cx='6.6' cy='8.8' r='0.4' fill='%23fff'/><circle cx='7' cy='12.3' r='0.5' fill='%23aaa'/></svg>",
     links: [
       { href: 'https://cowabun.ga/wallpapers?section=custom&id=105', label: 'Black Hole', desc: 'ประกวดครั้งแรกของโลก', award: 'อันดับ 1' },
-      { href: 'https://cowabun.ga/wallpapers?section=custom&id=108', label: 'Rolling Hills', desc: '', award: 'Best use of iOS 26 gyro' },
+      { href: 'https://cowabun.ga/wallpapers?section=custom&id=108', label: 'Rolling Hills', award: 'Best use of iOS 26 gyro' },
       { href: 'https://cowabun.ga/wallpapers?section=custom&id=35', label: 'Neon Lines', desc: 'วอลเปเปอร์อนิเมชัน iOS' },
       { href: 'https://cowabun.ga/wallpapers?section=custom&id=36', label: 'I am in.', desc: 'วอลเปเปอร์อนิเมชัน iOS' },
     ],
@@ -108,12 +108,12 @@ export const SECTIONS: LinkSection[] = [
     headerIcon:
       "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M6 1h2l.4 1.8c.4.2.8.4 1.1.7l1.7-.6.9 1.6-1.3 1.3c.05.4.05.8 0 1.2l1.3 1.3-.9 1.6-1.7-.6c-.3.3-.7.5-1.1.7L8 13H6l-.4-1.8c-.4-.2-.8-.4-1.1-.7l-1.7.6-.9-1.6 1.3-1.3a4 4 0 0 1 0-1.2L1.9 5.5l.9-1.6 1.7.6c.3-.3.7-.5 1.1-.7z' fill='%23909090' stroke='%23333333' stroke-width='0.6'/><circle cx='7' cy='7' r='1.8' fill='%23cccccc' stroke='%23333333' stroke-width='0.6'/></svg>",
     links: [
-      { href: 'https://github.com/ItMe12s/Git-Editor', label: 'Git-Editor', desc: '', repo: 'ItMe12s/Git-Editor' },
-      { href: 'https://github.com/ItMe12s/LuauAPI/', label: 'LuauAPI', desc: '', repo: 'ItMe12s/LuauAPI' },
-      { href: 'https://github.com/ItMe12s/wavefix', label: 'wavefix', desc: '', repo: 'ItMe12s/wavefix' },
-      { href: 'https://github.com/ItMe12s/whatishedoing', label: 'whatishedoing', desc: '', repo: 'ItMe12s/whatishedoing' },
-      { href: 'https://github.com/ItMe12s/BetterVisuals', label: 'BetterVisuals', desc: '', repo: 'ItMe12s/BetterVisuals' },
-      { href: 'https://github.com/ItMe12s/smoothtextinput', label: 'smoothtextinput', desc: '', repo: 'ItMe12s/smoothtextinput' },
+      { href: 'https://github.com/ItMe12s/Git-Editor', label: 'Git-Editor', repo: 'ItMe12s/Git-Editor' },
+      { href: 'https://github.com/ItMe12s/LuauAPI/', label: 'LuauAPI', repo: 'ItMe12s/LuauAPI' },
+      { href: 'https://github.com/ItMe12s/wavefix', label: 'wavefix', repo: 'ItMe12s/wavefix' },
+      { href: 'https://github.com/ItMe12s/whatishedoing', label: 'whatishedoing', repo: 'ItMe12s/whatishedoing' },
+      { href: 'https://github.com/ItMe12s/BetterVisuals', label: 'BetterVisuals', repo: 'ItMe12s/BetterVisuals' },
+      { href: 'https://github.com/ItMe12s/smoothtextinput', label: 'smoothtextinput', repo: 'ItMe12s/smoothtextinput' },
     ],
   },
 ];

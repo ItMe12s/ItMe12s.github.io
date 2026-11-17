@@ -285,6 +285,7 @@ img {
     border: 1px solid #b08000;
     border-radius: 3px;
     white-space: nowrap;
+    margin-right: 4px;
 }
 
 .sect.community .shead {
@@ -662,14 +663,14 @@ img {
         padding-top: 0;
     }
 
-    .contact .sep {
-        display: none;
-    }
-
     .contact {
         display: flex;
         flex-direction: column;
         align-items: center;
+    }
+
+    .contact .sep {
+        display: none;
     }
 
     .dir tr {
