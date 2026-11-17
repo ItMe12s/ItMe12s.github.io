@@ -83,6 +83,7 @@ export const SECTIONS: LinkSection[] = [
     links: [
       { href: 'https://discord.gg/qEt9XhZBuP', label: 'Roblox & TikTok Discord server' },
       { href: 'https://discord.gg/E8f6D6XqbW', label: 'GD & Geode mods Discord server' },
+      { href: 'https://discord.gg/revolutionmacro', label: 'Revolution Macro official Discord server' },
     ],
   },
   {
