@@ -1,5 +1,5 @@
-export type Attrs = Record<string, string | number | boolean | undefined>;
-export type Child = Node | string | null | undefined | false;
+type Attrs = Record<string, string | number | boolean | undefined>;
+type Child = Node | string | null | undefined | false;
 
 export function el<K extends keyof HTMLElementTagNameMap>(
   tag: K,
