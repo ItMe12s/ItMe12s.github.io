@@ -47,6 +47,11 @@ export const SECTIONS: LinkSection[] = [
         label: 'Word Link!',
         desc: 'Roblox game',
       },
+      {
+        href: 'https://www.roblox.com/games/127728267098333/Extreme-Bike-Mods',
+        label: 'Extreme Bike Mods',
+        desc: 'Upcoming Roblox game',
+      },
     ],
   },
   {
