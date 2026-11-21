@@ -63,7 +63,7 @@ export const SECTIONS: LinkSection[] = [
   },
   {
     id: 'mods',
-    title: 'Popular Geometry Dash Mods',
+    title: 'Geometry Dash Mods',
     headerIcon:
       "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M6 1h2l.4 1.8c.4.2.8.4 1.1.7l1.7-.6.9 1.6-1.3 1.3c.05.4.05.8 0 1.2l1.3 1.3-.9 1.6-1.7-.6c-.3.3-.7.5-1.1.7L8 13H6l-.4-1.8c-.4-.2-.8-.4-1.1-.7l-1.7.6-.9-1.6 1.3-1.3a4 4 0 0 1 0-1.2L1.9 5.5l.9-1.6 1.7.6c.3-.3.7-.5 1.1-.7z' fill='%23909090' stroke='%23333333' stroke-width='0.6'/><circle cx='7' cy='7' r='1.8' fill='%23cccccc' stroke='%23333333' stroke-width='0.6'/></svg>",
     links: [
@@ -73,6 +73,9 @@ export const SECTIONS: LinkSection[] = [
       githubRepo('whatishedoing'),
       githubRepo('BetterVisuals'),
       githubRepo('smoothtextinput'),
+      githubRepo('growablackmold'),
+      githubRepo('drukimod'),
+      githubRepo('luauapi-example-mod'),
     ],
   },
   {
