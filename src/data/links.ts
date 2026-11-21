@@ -99,6 +99,7 @@ export const SECTIONS: LinkSection[] = [
       { href: 'https://www.youtube.com/@ItMe12s', label: 'YouTube', desc: 'Video channel' },
       { href: 'https://www.twitch.tv/imes_s', label: 'Twitch', desc: 'Live streams' },
       { href: 'https://www.roblox.com/users/784247040/profile', label: 'Roblox', desc: 'Roblox profile' },
+      { href: 'https://ko-fi.com/imes', label: 'Ko-fi', desc: 'Support me' },
     ],
   },
 ];
