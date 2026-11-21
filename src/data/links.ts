@@ -25,7 +25,7 @@ export const DOC_ICON =
 export const SECTIONS: LinkSection[] = [
   {
     id: 'store',
-    title: 'Store',
+    title: 'Stores',
     headerIcon:
       "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><path d='M2.5 3.5h1.7l.9 5.6h6.2l.9-3.9H6.2' fill='none' stroke='%23303030' stroke-width='1.3' stroke-linecap='round' stroke-linejoin='round'/><circle cx='6.1' cy='11.4' r='1' fill='%23303030'/><circle cx='11.3' cy='11.4' r='1' fill='%23303030'/></svg>",
     links: [
@@ -77,7 +77,7 @@ export const SECTIONS: LinkSection[] = [
   },
   {
     id: 'community',
-    title: 'Community',
+    title: 'Communities',
     headerIcon:
       "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14'><circle cx='4.5' cy='5' r='1.8' fill='%234070b0' stroke='%231f3f80' stroke-width='0.6'/><path d='M1.5 12c0-2 1.4-3.4 3-3.4s3 1.4 3 3.4' fill='%234070b0' stroke='%231f3f80' stroke-width='0.6'/><circle cx='9.8' cy='5' r='1.8' fill='%234070b0' stroke='%231f3f80' stroke-width='0.6'/><path d='M6.8 12c0-2 1.4-3.4 3-3.4s3 1.4 3 3.4' fill='%234070b0' stroke='%231f3f80' stroke-width='0.6'/></svg>",
     links: [
